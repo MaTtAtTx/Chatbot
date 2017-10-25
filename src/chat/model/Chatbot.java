@@ -25,10 +25,9 @@ public class Chatbot
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
 		this.questions = null;
-		this.username = null;
+		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.currentTime = null;
 		this.topics = null;
 		this.verbs = null;
 		this.followUps = null;

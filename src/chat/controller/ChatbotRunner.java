@@ -6,10 +6,7 @@ public class ChatbotRunner
 {
 	public static void main(String [] args)
 	{
-//		ChatController myApp = new ChatController();
-//		myApp.start();
-		PopupDisplay sample = new PopupDisplay();
-		sample.displayText("TestTest");
-		sample.collectResponse("asdfaastest");
+		ChatbotController myApp = new ChatbotController();
+		myApp.start();
 	}
 }
