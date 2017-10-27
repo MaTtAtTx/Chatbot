@@ -28,12 +28,13 @@ public class Chatbot
 		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.topics = null;
+		this.topics = new String [7];
 		this.verbs = new String [4];
-		this.followUps = null;
+		this.followUps = new String [5];
 		
 		buildVerbs();
 		buildShoppingList();
+		buildQuestions();
 	}
 	
 	private void buildVerbs()
@@ -65,7 +66,16 @@ public class Chatbot
 	
 	private void buildQuestions()
 	{
-		
+		questions[0] = "What is your name?";
+		questions[1] = "How are you today?";
+		questions[2] = "What are you going to do this weekend?";
+		questions[3] = "What is your favorite thing to do in you free time?";
+		questions[4] = "What is your favorite subject in school?";
+		questions[5] = "What is your favorite color?";
+		questions[6] = "What is your favorite restaurant?";
+		questions[7] = "Do you have a car?";
+		questions[8] = "How old are you?";
+		questions[9] = "What country do you live in?";
 	}
 	
 	public String processConversation(String input)
@@ -92,7 +102,17 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
-		return false;
+		boolean userNameCheck = false;
+		
+		if (input != null && input.length() > 0 && !input.contains("."))
+		{
+			if (input.startsWith("@"))
+			{
+				userNameCheck = true;
+			}
+		}
+		
+		return userNameCheck;
 	}
 	
 	public boolean contentChecker(String contentCheck)
@@ -147,7 +167,7 @@ public class Chatbot
 
 	public String [] getQuestions()
 	{
-		return null;
+		return questions;
 	}
 	
 	public String[] getVerbs()

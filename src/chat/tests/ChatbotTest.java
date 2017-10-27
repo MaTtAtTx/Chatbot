@@ -168,7 +168,7 @@ public class ChatbotTest
 			{
 				otterCount += 1;
 			}
-			if (cute.toUpperCase().contains("floofer"))
+			if (cute.toUpperCase().contains("Floofer"))
 			{
 				flooferCount += 1;
 			}
