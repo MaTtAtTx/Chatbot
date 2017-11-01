@@ -145,7 +145,14 @@ public class Chatbot
 		{
 			if (input.startsWith("@"))
 			{
-				userNameCheck = true;
+				if (input.indexOf("@") > 0)
+				{
+					userNameCheck = false;
+				}
+				else
+				{
+					userNameCheck = true;
+				}
 			}
 		}
 		
