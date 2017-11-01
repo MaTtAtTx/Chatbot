@@ -20,7 +20,7 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
@@ -68,7 +68,13 @@ public class Chatbot
 	
 	private void buildTopics()
 	{
-		
+		topics[0] = "programming";
+		topics[1] = "school";
+		topics[2] = "sports";
+		topics[3] = "food";
+		topics[4] = "TV shows";
+		topics[5] = "books";
+		topics[6] = "computers";
 	}
 	
 	private void buildFollowUps()
@@ -106,7 +112,7 @@ public class Chatbot
 		response += verbs[random];
 		
 		random = (int) (Math.random() * topics.length);
-		response += " " + topics[random] + ".";
+		response += " " + topics[random] + ".\n";
 		
 		random = (int) (Math.random() * questions.length);
 		response += questions[random];
@@ -135,7 +141,7 @@ public class Chatbot
 	{
 		boolean userNameCheck = false;
 		
-		if (input != null && input.length() > 0 && !input.contains("."))
+		if (input != null && input.length() > 0)
 		{
 			if (input.startsWith("@"))
 			{
@@ -173,6 +179,10 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if (exitString != null && exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
 		return false;
 	}
 
