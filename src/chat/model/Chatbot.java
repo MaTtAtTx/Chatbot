@@ -140,18 +140,25 @@ public class Chatbot
 	public boolean userNameChecker(String input)
 	{
 		boolean userNameCheck = false;
+		String letter = "";
+		int indexCount = 0;
 		
 		if (input != null && input.length() > 0)
 		{
 			if (input.startsWith("@"))
 			{
-				if (input.indexOf("@") > 0)
+				for (int currentLetterIndex = 0; currentLetterIndex < input.length(); currentLetterIndex += 1)
 				{
-					userNameCheck = false;
-				}
-				else
-				{
-					userNameCheck = true;
+					letter = (input.substring(currentLetterIndex, currentLetterIndex + 1));
+					indexCount += 1;
+					if (letter.equals("@") && indexCount > 0)
+					{
+						userNameCheck = false;
+					}
+					else
+					{
+						userNameCheck = true;
+					}
 				}
 			}
 		}
