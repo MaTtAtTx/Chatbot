@@ -26,8 +26,8 @@ public class Chatbot
 		this.currentTime = null;
 		this.questions = new String [10];
 		this.username = username;
-		this.content = null;
-		this.intro = null;
+		this.content = "";
+		this.intro = "";
 		this.topics = new String [7];
 		this.verbs = new String [4];
 		this.followUps = new String [5];
@@ -126,7 +126,7 @@ public class Chatbot
 		
 		if (input != null && input.length() > 2)
 		{
-				validLength = true;
+			validLength = true;
 		}
 		
 		return validLength;
@@ -140,27 +140,10 @@ public class Chatbot
 	public boolean userNameChecker(String input)
 	{
 		boolean userNameCheck = false;
-		String letter = "";
-		int indexCount = 0;
 		
-		if (input != null && input.length() > 0)
+		if (input != null && input.length() > 0 && input.startsWith("@"))
 		{
-			if (input.startsWith("@"))
-			{
-				for (int currentLetterIndex = 0; currentLetterIndex < input.length(); currentLetterIndex += 1)
-				{
-					letter = (input.substring(currentLetterIndex, currentLetterIndex + 1));
-					indexCount += 1;
-					if (letter.equals("@") && indexCount > 0)
-					{
-						userNameCheck = false;
-					}
-					else
-					{
-						userNameCheck = true;
-					}
-				}
-			}
+			userNameCheck = true;
 		}
 		
 		return userNameCheck;
@@ -182,7 +165,7 @@ public class Chatbot
 		
 		for (int index = 0; index < shoppingList.size(); index += 1)
 		{
-			if (shoppingItem.contains("protein") || shoppingItem.contains("veggies") || shoppingItem.contains("snacks") || !shoppingItem.contains("slug bait"))
+			if (shoppingItem.contains(shoppingList.get(index)))
 			{
 				shoppingListCheck = true;
 			}
