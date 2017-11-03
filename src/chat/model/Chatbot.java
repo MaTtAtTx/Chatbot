@@ -178,7 +178,17 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		boolean shoppingListCheck = false;
+		
+		for (int index = 0; index < shoppingList.size(); index += 1)
+		{
+			if (shoppingItem.contains("protein") || shoppingItem.contains("veggies") || shoppingItem.contains("snacks") || !shoppingItem.contains("slug bait"))
+			{
+				shoppingListCheck = true;
+			}
+		}
+		
+		return shoppingListCheck;
 	}
 	
 	public boolean movieTitleChecker(String title)
@@ -252,12 +262,12 @@ public class Chatbot
 
 	public String getIntro()
 	{
-		return null;
+		return intro;
 	}
 	
 	public LocalTime getCurrentTime()
 	{
-		return null;
+		return currentTime;
 	}
 	
 	public void setUsername(String username)
