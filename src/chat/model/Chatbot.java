@@ -96,6 +96,11 @@ public class Chatbot
 		questions[9] = "What country do you live in?";
 	}
 	
+	/**
+	 * Takes the user's text input and processes it and returns a string.
+	 * @param input The user's supplied text.
+	 * @return The combined user input and chatbot response
+	 */
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
@@ -105,6 +110,10 @@ public class Chatbot
 		return chatbotResponse;
 	}
 	
+	/**
+	 * Builds a random response using the chatbot's sentence part arrays.
+	 * @return The random response of the chatbot.
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
