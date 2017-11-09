@@ -55,7 +55,9 @@ public class Chatbot
 	
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("FLOOFER");
+		cuteAnimalMemes.add("kittie");
 	}
 	
 	private void buildVerbs()
