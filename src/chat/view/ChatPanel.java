@@ -21,8 +21,8 @@ public class ChatPanel extends JPanel
 		this.appController = appController;
 
 		chatButton = new JButton("Chat");
-		inputField = new JTextField(25);
-		chatArea = new JTextArea(10, 25);
+		inputField = new JTextField(20);
+		chatArea = new JTextArea(10, 20);
 		baseLayout = new SpringLayout();
 		
 		setupPanel();
