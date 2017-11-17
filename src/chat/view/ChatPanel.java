@@ -16,6 +16,10 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	
+	/**
+	 * This is the constructor for the GUIPanel where all the Panel components are initialized.
+	 * @param appcontroller
+	 */
 	public ChatPanel(ChatbotController appcontroller)
 	{
 		super();
@@ -31,6 +35,9 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * This helper method adds the specific components you want to the GUIPanel.
+	 */
 	private void setupPanel()
 	{
 		this.setBackground(Color.BLACK);
@@ -40,6 +47,10 @@ public class ChatPanel extends JPanel
 		this.add(chatArea);
 	}
 	
+	/**
+	 * All the constraints on the components of the panel go into this helper method.
+	 * If you move components around in the WindowBuilder Editor, the coding of the constraints will move back to the chatPanel constructor.
+	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
