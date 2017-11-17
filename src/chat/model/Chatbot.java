@@ -32,6 +32,7 @@ public class Chatbot
 		this.verbs = new String [4];
 		this.followUps = new String [5];
 		
+		buildMovieList();
 		buildShoppingList();
 		buildVerbs();
 		buildTopics();
@@ -41,7 +42,7 @@ public class Chatbot
 	
 	private void buildMovieList()
 	{
-
+		movieList.add(new Movie("Justice League"));
 	}
 	
 	private void buildShoppingList()
