@@ -28,6 +28,11 @@ public class ChatbotController
 //		}
 	}
 	
+	public String interactWithChatBot(String input)
+	{
+		return null;
+	}
+	
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";
