@@ -1,7 +1,7 @@
 package chat.view;
 
-import chat.controller.ChatbotController;
 import javax.swing.JPanel;
+import chat.controller.ChatbotController;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -9,6 +9,12 @@ import javax.swing.SpringLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * The JPanel subclass for the chatbot project.
+ * @author Matthew Johnsen
+ * @version 11/21/17 1.2 
+ */
 
 public class ChatPanel extends JPanel
 {
