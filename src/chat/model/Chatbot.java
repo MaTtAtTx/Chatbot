@@ -34,6 +34,7 @@ public class Chatbot
 		
 		buildMovieList();
 		buildShoppingList();
+		buildCuteAnimals();
 		buildVerbs();
 		buildTopics();
 		buildFollowUps();
@@ -82,7 +83,11 @@ public class Chatbot
 	
 	private void buildFollowUps()
 	{
-		
+		followUps[0] = "";
+		followUps[1] = "";
+		followUps[2] = "";
+		followUps[3] = "";
+		followUps[4] = "";
 	}
 	
 	private void buildQuestions()
@@ -120,6 +125,7 @@ public class Chatbot
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
+		int random2 = ((int) (Math.random() * 2)) % 2;
 		int random = (int) (Math.random() * verbs.length);
 		response += verbs[random];
 		
@@ -127,10 +133,16 @@ public class Chatbot
 		response += " " + topics[random] + ".\n";
 		
 		random = (int) (Math.random() * questions.length);
-		response += questions[random];
+		if (random2 == 0)
+		{
+			response += questions[random];
+		}
+		else
+		{
+			response += questions[random] + "\n";
+		}
 		
-		random = (int) (Math.random() * 2);
-		if (random % 2 == 0)
+		if (random2 == 0)
 		{
 			random = (int) (Math.random() * movieList.size());
 			response += "\n" + movieList.get(random).getTitle() + " is a great movie!\n";
