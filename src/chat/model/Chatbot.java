@@ -126,6 +126,7 @@ public class Chatbot
 	{
 		String response = "I ";
 		int random2 = ((int) (Math.random() * 2)) % 2;
+		
 		int random = (int) (Math.random() * verbs.length);
 		response += verbs[random];
 		
@@ -146,6 +147,25 @@ public class Chatbot
 		{
 			random = (int) (Math.random() * movieList.size());
 			response += "\n" + movieList.get(random).getTitle() + " is a great movie!\n";
+		}
+		
+		
+		int followup = (int) (Math.random() * 5);
+		
+		switch (followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 2:
+			response += followUps[2] + "\n";
+			break;
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
 		}
 		
 		return response;
