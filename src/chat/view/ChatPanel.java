@@ -5,6 +5,7 @@ import chat.controller.ChatbotController;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class ChatPanel extends JPanel
 	private JButton checkerButton;
 	private JTextField inputField;
 	private JTextArea chatArea;
+	private JLabel infoLabel;
 	private SpringLayout appLayout;
 
 	/**
@@ -40,6 +42,7 @@ public class ChatPanel extends JPanel
 		checkerButton = new JButton("Checker");
 		inputField = new JTextField(20);
 		chatArea = new JTextArea(10, 25);
+		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
 
 		setupPanel();
@@ -58,6 +61,7 @@ public class ChatPanel extends JPanel
 		this.add(checkerButton);
 		this.add(inputField);
 		this.add(chatArea);
+		this.add(infoLabel);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -78,6 +82,8 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 29, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 	}
 
 	private void setupListeners()
