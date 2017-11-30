@@ -185,7 +185,14 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		boolean validTag = false;
+		
+		if ()
+		{
+			
+		}
+		
+		return validTag;
 	}
 	
 	public boolean userNameChecker(String input)
