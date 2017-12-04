@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -26,6 +27,7 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private JLabel infoLabel;
+	private JScrollPane chatScrollPane;
 	private SpringLayout appLayout;
 
 	/**
@@ -38,16 +40,27 @@ public class ChatPanel extends JPanel
 		super();
 		this.appController = appController;
 
+		//Iitialize GUI data members
 		chatButton = new JButton("Chat");
 		checkerButton = new JButton("Checker");
 		inputField = new JTextField(20);
 		chatArea = new JTextArea(10, 25);
 		infoLabel = new JLabel("Type to chat with the chatbot");
+		chatScrollPane = new JScrollPane();
 		appLayout = new SpringLayout();
 
+		//call new helper methods
+		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupScrollPane()
+	{
+		chatScrollPane.setViewportView(chatArea);
+		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
 
 	/**
