@@ -23,14 +23,14 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
-		this.currentTime = null;
+		this.verbs = new String [4];
+		this.topics = new String [7];
+		this.followUps = new String [5];
 		this.questions = new String [10];
 		this.username = username;
 		this.content = "";
 		this.intro = "";
-		this.topics = new String [7];
-		this.verbs = new String [4];
-		this.followUps = new String [5];
+		this.currentTime = LocalTime.now();
 		
 		buildMovieList();
 		buildShoppingList();
@@ -83,11 +83,11 @@ public class Chatbot
 	
 	private void buildFollowUps()
 	{
-		followUps[0] = "";
-		followUps[1] = "";
-		followUps[2] = "";
-		followUps[3] = "";
-		followUps[4] = "";
+		followUps[0] = "dogs";
+		followUps[1] = "cats";
+		followUps[2] = "ice cream";
+		followUps[3] = "restaurants";
+		followUps[4] = "boating";
 	}
 	
 	private void buildQuestions()
@@ -112,6 +112,7 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " \n";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
 		chatbotResponse += buildChatbotResponse();
 		
