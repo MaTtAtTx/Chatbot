@@ -118,7 +118,7 @@ public class ChatPanel extends JPanel
 			{
 				String userText = inputField.getText();
 				String displayText = appController.useCheckers(userText);
-				chatArea.append(displayText);
+				chatArea.setText(displayText);
 				inputField.setText("");
 			}
 		});

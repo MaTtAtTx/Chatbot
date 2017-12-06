@@ -57,6 +57,7 @@ public class Chatbot
 	
 	private void buildCuteAnimals()
 	{
+		cuteAnimalMemes.add("pupper");
 		cuteAnimalMemes.add("otter");
 		cuteAnimalMemes.add("FLOOFER");
 		cuteAnimalMemes.add("kittie");
@@ -240,12 +241,29 @@ public class Chatbot
 	
 	public boolean contentChecker(String contentCheck)
 	{
-		return false;
+		boolean checkContent = false;
+		
+		if (contentCheck.length() > 6)
+		{
+			checkContent = true;
+		}
+		
+		return checkContent;
 	}
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean animalCheck = false;
+		
+		for (int index = 0; index < cuteAnimalMemes.size(); index += 1)
+		{
+			if (input.contains(cuteAnimalMemes.get(index)))
+			{
+				animalCheck = true;
+			}
+		}
+		
+		return animalCheck;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem)
