@@ -32,7 +32,6 @@ public class ChatPanel extends JPanel
 
 	/**
 	 * This is the constructor for the GUIPanel where all the Panel components are initialized.
-	 * 
 	 * @param appcontroller
 	 */
 	public ChatPanel(ChatbotController appController)
@@ -40,7 +39,7 @@ public class ChatPanel extends JPanel
 		super();
 		this.appController = appController;
 
-		//Iitialize GUI data members
+		//Initialize GUI data members
 		chatButton = new JButton("Chat");
 		checkerButton = new JButton("Checker");
 		inputField = new JTextField(20);
@@ -64,7 +63,8 @@ public class ChatPanel extends JPanel
 	}
 
 	/**
-	 * This helper method adds the specific components you want to the GUIPanel.
+	 * This helper method adds the specific components you want to the GUIPanel and you also must
+	 * set the layout to the appLayout you made in this helper method.
 	 */
 	private void setupPanel()
 	{
@@ -99,6 +99,10 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 	}
 
+	/**
+	 * This helper method contains the action listeners you create, which are action for different things like
+	 * clicking for buttons, etc.
+	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()

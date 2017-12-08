@@ -4,6 +4,13 @@ import chat.model.Chatbot;
 import chat.view.PopupDisplay;
 import chat.view.ChatFrame;
 
+/**
+ * The controller for the chatbot project.
+ * 
+ * @author Matthew Johnsen
+ * @version 11/21/17 1.2
+ */
+
 public class ChatbotController
 {
 	private Chatbot chatbot;
@@ -22,6 +29,11 @@ public class ChatbotController
 		display.displayText("Welcome to Chatbot!");
 	}
 	
+	/**
+	 * This method builds the conversation that you have with the chatbot
+	 * @param input This is the user's string input to the chatbot.
+	 * @return Returns the string it has built from the processConversation method in the chatbot.
+	 */
 	public String interactWithChatBot(String input)
 	{
 		String chatbotSays = "";
@@ -36,6 +48,11 @@ public class ChatbotController
 		return chatbotSays;
 	}
 	
+	/**
+	 * This method checks the user's input to see what checkers it fulfills.
+	 * @param text This is the user's input in the chatbot
+	 * @return Returns the built repsonse with all the checkers checked
+	 */
 	public String useCheckers(String text)
 	{
 		String response = "";

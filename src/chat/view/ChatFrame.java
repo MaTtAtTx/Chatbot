@@ -3,6 +3,13 @@ package chat.view;
 import chat.controller.ChatbotController;
 import javax.swing.JFrame;
 
+/**
+ * The JFrame  subclass for the chatbot project.
+ * 
+ * @author Matthew Johnsen
+ * @version 11/21/17 1.2
+ */
+
 public class ChatFrame extends JFrame
 {	
 	private ChatbotController appController;
@@ -17,6 +24,9 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * This helper method setups the frame and makes it visible while putting the panel into it.
+	 */
 	private void setupFrame()
 	{
 		this.setSize(500,500);

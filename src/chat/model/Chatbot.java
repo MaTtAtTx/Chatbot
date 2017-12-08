@@ -4,6 +4,13 @@ import java.util.List;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/**
+ * The Chatbot subclass for the chatbot project.
+ * 
+ * @author Matthew Johnsen
+ * @version 11/21/17 1.2
+ */
+
 public class Chatbot
 {
 	private List<Movie> movieList;
@@ -18,6 +25,11 @@ public class Chatbot
 	private String intro;
 	private LocalTime currentTime;
 	
+	/**
+	 * This is the constructor for the chatbot model, where all the data members
+	 * of the chatbot are initialized.
+	 * @param username This is one of the data members of the chatbot.
+	 */
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -172,7 +184,12 @@ public class Chatbot
 		
 		return response;
 	}
-	
+	 
+	/**
+	 * This checker checks to see if the length of the string in the chatbot is greater than 2.
+	 * @param input This is the user's input in the chatbot.
+	 * @return This checker will only return a boolean as true if all the conditions of it are met.
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
@@ -185,6 +202,11 @@ public class Chatbot
 		return validLength;
 	}
 	
+	/** 
+	 * This checker is suppose to check to make sure only correct html tags work.
+	 * @param input This is the users input in the chatbot.
+	 * @return The checker returns a boolean that will only be true if all the conditions are met.
+	 */
 	public boolean htmlTagChecker(String input)
 	{
 		boolean containsHTML = false;
@@ -224,6 +246,13 @@ public class Chatbot
 		return containsHTML;
 	}
 	
+	/**
+	 * This checker checks to see if the username meets all the conditions, which include
+	 * not being null, having a length greater than 0, starting with an @ sign, and the
+	 * username only having 1 @ sign in it.
+	 * @param input This is just the users input
+	 * @return Returns a boolean that is only true if all the conditions of the checker are met.
+	 */
 	public boolean userNameChecker(String input)
 	{
 		boolean userNameCheck = false;
@@ -251,6 +280,11 @@ public class Chatbot
 		return checkContent;
 	}
 	
+	/**
+	 * This checker checks to see if the cute animal memes list contains the required memes.
+	 * @param input This is just the users input when the checker is being used.
+	 * @return It returns a boolean that only changes to true if the checkers conditions are met.
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean animalCheck = false;
@@ -266,6 +300,11 @@ public class Chatbot
 		return animalCheck;
 	}
 	
+	/**
+	 * This checker checks to see if the shopping list contains the required items.
+	 * @param shoppingItem This is just the users input when the checker is being used.
+	 * @return It returns a boolean that only changes to true if the checkers conditions are met.
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		boolean shoppingListCheck = false;
@@ -291,6 +330,11 @@ public class Chatbot
 		return false;
 	}
 
+	/**
+	 * Checks to see the if the user types a string as quit and the string isn't null.
+	 * @param exitString This is the user's input in the chatbot.
+	 * @return Returns a boolean as true only if the conditions of the checker are met.
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		if (exitString != null && exitString.equalsIgnoreCase("quit"))
