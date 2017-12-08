@@ -55,7 +55,12 @@ public class Chatbot
 	
 	private void buildMovieList()
 	{
-		movieList.add(new Movie("Justice League"));
+		movieList.add(new Movie("Angels and Demons"));
+		movieList.add(new Movie("The Hunger Games"));
+		movieList.add(new Movie("Harry Potter"));
+		movieList.add(new Movie("Pirates of the Carribbean"));
+		movieList.add(new Movie("Inception"));
+		movieList.add(new Movie("National Treasure"));
 	}
 	
 	private void buildShoppingList()
@@ -65,6 +70,13 @@ public class Chatbot
 		shoppingList.add("snacks");
 		shoppingList.add("fruits");
 		shoppingList.add("candy");
+		shoppingList.add("eggs");
+		shoppingList.add("hot peppers");
+		shoppingList.add("onions");
+		shoppingList.add("bagel");
+		shoppingList.add("crunchy peanut butter");
+		shoppingList.add("hot sauce");
+		shoppingList.add("juice");
 	}
 	
 	private void buildCuteAnimals()
@@ -96,11 +108,11 @@ public class Chatbot
 	
 	private void buildFollowUps()
 	{
-		followUps[0] = "dogs";
-		followUps[1] = "cats";
-		followUps[2] = "ice cream";
-		followUps[3] = "restaurants";
-		followUps[4] = "boating";
+		followUps[0] = "I really like dogs. Do you?";
+		followUps[1] = "I really like cats. Do you?";
+		followUps[2] = "I really like ice cream. What's your favorite flavor of ice cream?";
+		followUps[3] = "I like going to restaurants. What's your favorite restaurant?";
+		followUps[4] = "I love boating. Have you ever been boating before?";
 	}
 	
 	private void buildQuestions()
