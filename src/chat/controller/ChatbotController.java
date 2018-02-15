@@ -107,6 +107,6 @@ public class ChatbotController
 	
 	public void handleErrors (Exception error)
 	{
-		PopupDisplay.displayText(error.getMessage());
+		display.displayText(error.getMessage());
 	}
 }
