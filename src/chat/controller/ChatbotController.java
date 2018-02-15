@@ -104,4 +104,9 @@ public class ChatbotController
 		
 		return chatbotSays;
 	}
+	
+	public void handleErrors (Exception error)
+	{
+		PopupDisplay.displayText(error.getMessage());
+	}
 }

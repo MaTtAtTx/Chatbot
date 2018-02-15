@@ -284,7 +284,7 @@ public class Chatbot
 	{
 		boolean checkContent = false;
 		
-		if (contentCheck.length() > 6)
+		if (contentCheck)
 		{
 			checkContent = true;
 		}
@@ -357,6 +357,7 @@ public class Chatbot
 	}
 
 	public boolean keyboardMashChecker(String sample)
+
 	{
 		return false;
 	}
