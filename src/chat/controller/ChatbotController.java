@@ -23,6 +23,7 @@ public class ChatbotController
 	{
 		chatbot = new Chatbot("Matthew");
 		myTwitter = new CTECTwitter(this);
+		//View initialized after the Model
 		display = new PopupDisplay();
 		appFrame = new ChatFrame(this);
 	}
