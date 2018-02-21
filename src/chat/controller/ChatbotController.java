@@ -3,6 +3,7 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.PopupDisplay;
 import chat.view.ChatFrame;
+import chat.model.CTECTwitter;
 
 /**
  * The controller for the chatbot project.
@@ -16,10 +17,13 @@ public class ChatbotController
 	private Chatbot chatbot;
 	private PopupDisplay display;
 	private ChatFrame appFrame;
+	private CTECTwitter myTwitter;
 	
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Matthew");
+		myTwitter = new CTECTwitter(this);
+		//View initialized after the Model
 		display = new PopupDisplay();
 		appFrame = new ChatFrame(this);
 	}
@@ -108,5 +112,10 @@ public class ChatbotController
 	public void handleErrors(Exception error)
 	{
 		display.displayText(error.getMessage());
+	}
+	
+	public void tweet(String text)
+	{
+		myTwitter.sendTweet(text);
 	}
 }
