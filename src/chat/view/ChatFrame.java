@@ -24,9 +24,6 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
-	/**
-	 * This helper method setups the frame and makes it visible while putting the panel into it.
-	 */
 	private void setupFrame()
 	{
 		this.setSize(500,420);

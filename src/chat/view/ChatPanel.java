@@ -29,10 +29,6 @@ public class ChatPanel extends JPanel
 	private JScrollPane chatScrollPane;
 	private SpringLayout appLayout;
 
-	/**
-	 * This is the constructor for the GUIPanel where all the Panel components are initialized.
-	 * @param appcontroller
-	 */
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
@@ -65,10 +61,6 @@ public class ChatPanel extends JPanel
 		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
 
-	/**
-	 * This helper method adds the specific components you want to the GUIPanel and you also must
-	 * set the layout to the appLayout you made in this helper method.
-	 */
 	private void setupPanel()
 	{
 		this.setBackground(new Color(0, 255, 255));
@@ -85,11 +77,6 @@ public class ChatPanel extends JPanel
 		chatArea.setEditable(false);
 	}
 
-	/**
-	 * All the constraints on the components of the panel go into this helper method. If you move
-	 * components around in the WindowBuilder Editor, the coding of the constraints will move back to
-	 * the chatPanel constructor.
-	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 20, SpringLayout.NORTH, this);
@@ -119,10 +106,6 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, tweetButton, 57, SpringLayout.NORTH, chatButton);
 	}
 
-	/**
-	 * This helper method contains the action listeners you create, which are action for different things like
-	 * clicking for buttons, etc.
-	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
