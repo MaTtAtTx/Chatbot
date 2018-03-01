@@ -27,6 +27,8 @@ public class CTECTwitter
 	public CTECTwitter(ChatbotController appController)
 	{
 		this.appController = appController;
+		this.searchedTweets = new ArrayList<Status>();
+		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
 	}
 	
@@ -44,6 +46,15 @@ public class CTECTwitter
 		{
 			appController.handleErrors(otherError);
 		}
+	}
+	
+	public String getMostCommonWord(String username)
+	{
+		String mostCommon = "";
+		
+		collectTweets(username);
+		
+		return mostCommon;
 	}
 	
 	private void collectTweets(String username)
@@ -78,10 +89,31 @@ public class CTECTwitter
 		}
 	}
 	
-	public String getMostCommonWord(String username)
+	private void turnStatusesToWords()
 	{
-		String mostCommon = "";
+		for (Status currentStatus : searchedTweets)
+		{
+			String tweetText = currentStatus.getText();
+			String [] tweetWords = tweetText.split(" ");
+			for (int index = 0; index < tweetWords.length; index++)
+			{
+				tweetedWords.add(removedPunctuation(tweetWords[index]).trim());
+			}
+		}
+	}
+	
+	private String removedPunctuation(String currentString)
+	{
+		String punctuation = ".,'?!:;\"(){}^[]<>-";
 		
-		return mostCommon;
+		String scrubbedString = "";
+		for (int i = 0; i < currentString.length(); i++)
+		{
+			if (punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
 	}
 }
