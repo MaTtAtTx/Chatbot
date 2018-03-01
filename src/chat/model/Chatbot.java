@@ -284,7 +284,7 @@ public class Chatbot
 	{
 		boolean checkContent = false;
 		
-		if (contentCheck)
+		if (contentCheck.contains(content))
 		{
 			checkContent = true;
 		}
