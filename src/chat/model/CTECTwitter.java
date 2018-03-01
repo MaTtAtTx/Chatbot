@@ -1,7 +1,7 @@
 package chat.model;
 
 import chat.controller.ChatbotController;
-
+import chat.controller.IOController;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
@@ -23,6 +23,7 @@ public class CTECTwitter
 	private Twitter chatbotTwitter;
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
+	private long totalWordCount;
 	
 	public CTECTwitter(ChatbotController appController)
 	{
@@ -30,6 +31,7 @@ public class CTECTwitter
 		this.searchedTweets = new ArrayList<Status>();
 		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
+		this.totalWordCount = 0;
 	}
 	
 	public void sendTweet(String textToTweet)
@@ -53,6 +55,8 @@ public class CTECTwitter
 		String mostCommon = "";
 		
 		collectTweets(username);
+		turnStatusesToWords();
+		totalWordCount = tweetedWords.size();
 		
 		return mostCommon;
 	}
@@ -115,5 +119,36 @@ public class CTECTwitter
 			}
 		}
 		return scrubbedString;
+	}
+	
+	private String [] createIgnoredWordArray()
+	{
+		String [] boringWords;
+		String fileText = IOController.loadFromFile(appController, "commonWords.txt");
+		int wordCount = 0;
+		
+		Scanner wordScanner = new Scanner(fileText);
+		
+		while (wordScanner.hasNextLine())
+		{
+			wordScanner.nextLine();
+			wordCount++;
+		}
+		
+		boringWords = new String [wordCount];
+		wordScanner.close();
+		
+		// Alternative file loading method.
+		// Uses the InputStream class
+		// Notice the lack of try/catch
+		
+		wordScanner = new Scanner(this.getClass().getResourceAsStream("data/commonWords.txt"));
+		for (int index = 0; index < boringWords.length; index++)
+		{
+			boringWords[index] = wordScanner.nextLine();
+		}
+		
+		wordScanner.close();
+		return boringWords;
 	}
 }
