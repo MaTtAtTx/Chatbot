@@ -15,6 +15,7 @@ import twitter4j.Status;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.text.DecimalFormat;
 
 public class CTECTwitter
@@ -24,6 +25,7 @@ public class CTECTwitter
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
 	private long totalWordCount;
+	private HashMap<String, Integer> wordsAndCount;
 	
 	public CTECTwitter(ChatbotController appController)
 	{
@@ -31,6 +33,7 @@ public class CTECTwitter
 		this.searchedTweets = new ArrayList<Status>();
 		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
+		this.wordsAndCount = new HashMap<String, Integer>();
 		this.totalWordCount = 0;
 	}
 	
@@ -58,23 +61,11 @@ public class CTECTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
+		trimTheBoringWords(boring);
+		removeBlanks();
+		generateWordCount();
 		
 		return mostCommon;
-	}
-	
-	private void trimTheBoringWords(String [] boringWords)
-	{
-		for (int index = tweetedWords.size() - 1; index >= 0; index--)
-		{
-			for (int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
-			{
-				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
-				{
-					tweetedWords.remove(index);
-					boringIndex = Integer.MAX_VALUE;
-				}
-			}
-		}
 	}
 	
 	private void collectTweets(String username)
@@ -166,5 +157,31 @@ public class CTECTwitter
 		
 		wordScanner.close();
 		return boringWords;
+	}
+	
+	private void trimTheBoringWords(String [] boringWords)
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for (int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
+			{
+				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
+				{
+					tweetedWords.remove(index);
+					boringIndex = boringWords.length;
+				}
+			}
+		}
+	}
+	
+	private void removeBlanks()
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			if (tweetedWords.get(index).trim().length() == 0)
+			{
+				tweetedWords.remove(index);
+			}
+		}
 	}
 }
