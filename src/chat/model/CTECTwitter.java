@@ -67,12 +67,19 @@ public class CTECTwitter
 		removeBlanks();
 		generateWordCount();
 		
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();
+		
+		String mostCommonWord = sorted.get(0).getKey();
 		int maxWord = 0;
 		
-		Hashtable<String, Integer> topOne = 
-				wordsAndCount.entrySet().stream()
-				.sorted(Map.Entry.comparingByValue()).limit(1).collect(Collectors.toMap
-					(Map.Entry :: getKey, Map.Entry :: getValue, (e1 , e2) -> e1, Hashtable :: new));
+		mostCommon = "The most common word in " + username + "'s " + searchedTweets.size() + " tweets is " +
+					mostCommonWord + ", and it was used " + maxWord + " times.\nThis is " +
+					(DecimalFormat.getPercentInstance().format(((double) maxWord)/totalWordCount)) +
+					" of total words: " + totalWordCount + " and is " +
+					(DecimalFormat.getPercentInstance().format(((double) maxWord)/wordsAndCount.size())) +
+					" of the unique words: " + wordsAndCount.size();
+		
+		mostCommon += "\n\n" + sortedWords();
 		
 		return mostCommon;
 	}
@@ -209,4 +216,13 @@ public class CTECTwitter
 			}
 		}
 	}
+	
+	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
+	{
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+		entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+		
+		return entries;
+	}
+
 }
