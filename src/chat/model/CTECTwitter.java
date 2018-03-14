@@ -83,6 +83,35 @@ public class CTECTwitter
 		
 		return mostCommon;
 	}
+
+	private String sortedWords()
+	{
+		String allWords = "";
+		String [] words = (String []) wordsAndCount.keySet().toArray();
+		for (int index = 0; index < words.length - 1; index++)
+		{
+			int maxIndex = index;
+			
+			for (int inner = index + 1; inner < words.length; inner++)
+			{
+				if (words[inner].compareTo(words[maxIndex]) > 0)
+				{
+					maxIndex = inner;
+				}
+			}
+			
+			String tempMax = words[maxIndex];
+			words[maxIndex] = words[index];
+			words[index] = tempMax;
+		}
+		
+		for (String word : words)
+		{
+			allWords += word + ", ";
+		}
+		
+		return allWords;
+	}
 	
 	private void collectTweets(String username)
 	{
@@ -224,5 +253,4 @@ public class CTECTwitter
 		
 		return entries;
 	}
-
 }
