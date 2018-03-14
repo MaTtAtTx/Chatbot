@@ -88,6 +88,13 @@ public class CTECTwitter
 	{
 		String allWords = "";
 		String [] words = (String []) wordsAndCount.keySet().toArray();
+		ArrayList<String> wordList = new ArrayList<String>(wordsAndCount.keySet());
+		
+		for (int index = 0; index < wordsAndCount.size(); index++)
+		{
+			words[index] = wordList.get(index);
+		}
+		
 		for (int index = 0; index < words.length - 1; index++)
 		{
 			int maxIndex = index;
