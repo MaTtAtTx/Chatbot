@@ -269,6 +269,7 @@ public class CTECTwitter
 		int resultMax = 750;
 		long lastId = Long.MAX_VALUE;
 		twitterQuery.setGeoCode(new GeoLocation(40.518846, -111.874581), 50, Query.MILES);
+		twitterQuery.setResultType(Query.POPULAR);
 		ArrayList<Status> matchingTweets = new ArrayList<Status>();
 		while (searchedTweets.size() < resultMax)
 		{
