@@ -268,7 +268,11 @@ public class CTECTwitter
 		Query twitterQuery = new Query(topic);
 		int resultMax = 750;
 		long lastId = Long.MAX_VALUE;
-		twitterQuery.setGeoCode(new GeoLocation(40.518846, -111.874581), 50, Query.MILES);
+		double latitude = 40.518846;
+		double longitude = -111.874581;
+		double radius = 100.0;
+		
+		twitterQuery.setGeoCode(new GeoLocation(latitude, longitude), radius, Query.MILES);
 		twitterQuery.setResultType(Query.POPULAR);
 		ArrayList<Status> matchingTweets = new ArrayList<Status>();
 		while (searchedTweets.size() < resultMax)
@@ -276,6 +280,15 @@ public class CTECTwitter
 			try
 			{
 				QueryResult resultingTweets = chatbotTwitter.search(twitterQuery);
+				
+				for(Status currentTweet : resultingTweets.getTweets())
+				{
+					if (currentTweet.getId() < lastId)
+					{
+						matchingTweets.add(currentTweet);
+						lastId = currentTweet.getId();
+					}
+				}
 			}
 			catch(TwitterException error)
 			{
@@ -284,7 +297,7 @@ public class CTECTwitter
 			
 			twitterQuery.setMaxId(lastId - 1);
 		}
-		
+
 		results += "Talk about the search results";
 		results += "Find a tweet that will pass on of the checkers in chatbot";
 		
